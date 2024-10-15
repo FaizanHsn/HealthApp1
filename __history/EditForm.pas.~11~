@@ -1,0 +1,44 @@
+unit EditForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, vcl.wwdbedit,
+  Vcl.DBCtrls;
+
+type
+  TForm2 = class(TForm)
+    Label1: TLabel;
+    Label2: TLabel;
+    Label3: TLabel;
+    wwDBEdit1: TwwDBEdit;
+    wwDBEdit2: TwwDBEdit;
+    DBMemo1: TDBMemo;
+    OKBtn: TButton;
+    CancelBtn: TButton;
+    procedure OKBtnClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    Adding:Boolean;
+  end;
+
+var
+  Form2: TForm2;
+
+implementation
+
+{$R *.dfm}
+uses
+  Database;
+
+procedure TForm2.OKBtnClick(Sender: TObject);
+begin
+  if Adding then
+  begin
+
+  end;
+end;
+
+end.

@@ -1,0 +1,39 @@
+program Project1;
+
+uses
+  Vcl.Forms,
+  Vcl.Dialogs,
+  HomePage in 'HomePage.pas' {Form1},
+  DataBase in 'DataBase.pas' {Form2},
+  Login in 'Login.pas' {Form3},
+  SignUp in 'SignUp.pas' {Form4};
+
+{$R *.res}
+
+var
+  LoginForm: TForm3; // Declare a variable for the login form
+  MainForm: TForm1;  // Declare a variable for the main form
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+
+  // Create the login form first
+  LoginForm := TForm3.Create(nil); // Create the login form without a parent
+  try
+    // Show the login form modally
+    if LoginForm.ShowModal = mrOk then // Check if login was successful
+    begin
+      // If login is successful, create and show the main form
+      Application.CreateForm(TForm1, MainForm);
+      Application.Run; // Run the application
+    end
+    else
+    begin
+      // If login fails, exit the application
+      Exit; // No need to create other forms if login is unsuccessful
+    end;
+  finally
+    LoginForm.Free; // Free the login form after use
+  end;
+end.
