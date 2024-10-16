@@ -3,75 +3,58 @@ object Form5: TForm5
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Users'
-  ClientHeight = 353
-  ClientWidth = 499
+  ClientHeight = 441
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -10
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnActivate = FormActivate
-  PixelsPerInch = 96
-  TextHeight = 12
+  TextHeight = 15
+  object dbgUsers: TwwDBGrid
+    Left = 0
+    Top = 0
+    Width = 624
+    Height = 401
+    Selected.Strings = (
+      'Username'#9'50'#9'Username'#9'T'
+      'Password'#9'50'#9'Password'#9'T')
+    IniAttributes.Delimiter = ';;'
+    IniAttributes.UnicodeIniFile = False
+    TitleColor = clBtnFace
+    FixedCols = 0
+    ShowHorzScrollBar = False
+    DataSource = Form1.dsUsers
+    TabOrder = 0
+    TitleAlignment = taLeftJustify
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    TitleLines = 1
+    TitleButtons = False
+    OnDblClick = dbgUsersDblClick
+  end
   object BtnAdd: TButton
-    Left = 6
-    Top = 326
-    Width = 60
-    Height = 20
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 8
+    Top = 408
+    Width = 75
+    Height = 25
     Caption = 'Add'
     TabOrder = 1
     OnClick = BtnAddClick
   end
   object BtnDelete: TButton
-    Left = 77
-    Top = 326
-    Width = 60
-    Height = 20
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 96
+    Top = 408
+    Width = 75
+    Height = 25
     Caption = 'Delete'
-    TabOrder = 0
-    OnClick = BtnDeleteClick
-  end
-  object dbgUsers: TDBGrid
-    Left = 0
-    Top = 0
-    Width = 499
-    Height = 321
-    DataSource = Form1.dsUsers
     TabOrder = 2
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -10
-    TitleFont.Name = 'Segoe UI'
-    TitleFont.Style = []
-    OnDblClick = dbgUsersDblClick
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'UserName'
-        ReadOnly = True
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Password'
-        ReadOnly = True
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'IsAdmin'
-        ReadOnly = True
-        Visible = True
-      end>
+    OnClick = BtnDeleteClick
   end
 end

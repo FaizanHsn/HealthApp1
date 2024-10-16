@@ -10,11 +10,12 @@ uses
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.VCLUI.Wait, Data.DB,
   FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Grids,
-  Vcl.ExtCtrls, Vcl.StdCtrls, ShellAPI, Vcl.DBGrids;
+  FireDAC.DApt, FireDAC.Comp.DataSet, Vcl.Grids, vcl.wwdbigrd, vcl.wwdbgrid,
+  Vcl.ExtCtrls, Vcl.StdCtrls, ShellAPI;
 
 type
   TForm2 = class(TForm)
+    dbgFoodReceipies: TwwDBGrid;
     MyDailyWorkOut: TPanel;
     WorkOut1: TImage;
     WorkOut2: TImage;
@@ -28,7 +29,6 @@ type
     Label4: TLabel;
     Label5: TLabel;
     Label6: TLabel;
-    dbgMyFoodReceipies: TDBGrid;
     procedure FormShow(Sender: TObject);
     procedure WorkOut1Click(Sender: TObject);
     procedure WorkOut3Click(Sender: TObject);

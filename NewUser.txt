@@ -1,5 +1,3 @@
 2024-10-09 09:06:16 - User: 123 Added
 2024-10-09 10:04:24 - User: seb Deleted
 2024-10-09 10:04:31 - User: 121 Deleted
-2024-10-14 23:05:25 - User: ABCD Deleted
-2024-10-14 23:13:38 - User: abc Added

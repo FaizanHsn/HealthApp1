@@ -4,17 +4,16 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, Vcl.ExtCtrls,
-  Vcl.DBCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.Mask, vcl.wwdbedit;
 
 type
   TForm6 = class(TForm)
+    EditUserName1: TwwDBEdit;
+    EditPassword1: TwwDBEdit;
     Label1: TLabel;
     Label2: TLabel;
     BtnOK: TButton;
     BtnCancel: TButton;
-    EditUserName1: TDBEdit;
-    EditPassword1: TDBEdit;
     procedure BtnOKClick(Sender: TObject);
     procedure BtnCancelClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -57,7 +56,7 @@ begin
       begin
         Close;
         Sql.clear;
-        Sql.Add('Select * from [User] where Username=:username');
+        Sql.Add('Select * from User where Username=:username');
         Params.ParambyName('UserName').AsString:= EditUserName1.text;
         Open;
         Id:=FieldByName('ID').AsInteger;
@@ -67,7 +66,7 @@ begin
     begin
       Close;
       Sql.clear;
-      Sql.Add('UPDATE [user] SET username = :username, password = :password WHERE Id=:id');
+      Sql.Add('UPDATE user SET username = :username, password = :password WHERE Id=:id');
       Params.ParamByName('username').AsString:=editusername1.text;
       Params.ParamByName('password').AsString:=editpassword1.text;
       Params.ParamByName('id').AsInteger:=Id;

@@ -4,14 +4,14 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids,
-  Vcl.StdCtrls, Data.DB, Vcl.DBGrids;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Grids, vcl.wwdbigrd, vcl.wwdbgrid,
+  Vcl.StdCtrls;
 
 type
   TForm5 = class(TForm)
+    dbgUsers: TwwDBGrid;
     BtnAdd: TButton;
     BtnDelete: TButton;
-    dbgUsers: TDBGrid;
     procedure dbgUsersDblClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure BtnAddClick(Sender: TObject);
@@ -57,7 +57,7 @@ begin
   begin
     Close;
     Sql.clear;
-    Sql.Add('delete from [user] where username=:username');
+    Sql.Add('delete from user where username=:username');
     Params.ParamByName('username').AsString:=Form1.qUsersUsername.value;
 
     Form1.qWorkWrite.ExecSql;

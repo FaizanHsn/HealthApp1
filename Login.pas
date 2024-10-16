@@ -49,7 +49,7 @@ begin
   begin
     Close;
     Sql.clear;
-    Sql.Add('Select * from [User] where Username=:username and Password=:password');
+    Sql.Add('Select * from User where Username=:username and Password=:password');
     Params.ParambyName('UserName').AsString:= EditUserName.text;
     Params.ParambyName('Password').AsString:= EditPassword.text;
     Open;

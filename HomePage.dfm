@@ -4,32 +4,27 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'HomePage'
-  ClientHeight = 328
-  ClientWidth = 486
+  ClientHeight = 410
+  ClientWidth = 607
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -10
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnCreate = FormCreate
-  PixelsPerInch = 96
-  TextHeight = 12
+  TextHeight = 15
   object Panel1: TPanel
-    Left = 84
+    Left = 105
     Top = 0
-    Width = 327
-    Height = 33
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Width = 409
+    Height = 41
     BorderStyle = bsSingle
     Caption = 'HEALTHY LIVING PROGRAM'
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
-    Font.Height = -19
+    Font.Height = -24
     Font.Name = 'Segoe UI'
     Font.Style = [fsBold]
     ParentFont = False
@@ -37,20 +32,16 @@ object Form1: TForm1
   end
   object Panel2: TPanel
     Left = 0
-    Top = 45
-    Width = 240
-    Height = 136
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Top = 56
+    Width = 300
+    Height = 170
     BorderStyle = bsSingle
     TabOrder = 1
     object imgDailyWorkoutPlan: TImage
       Left = 1
       Top = 50
-      Width = 234
-      Height = 81
+      Width = 294
+      Height = 115
       Align = alClient
       Stretch = True
       OnClick = imgDailyWorkoutPlanClick
@@ -61,7 +52,7 @@ object Form1: TForm1
     object Panel6: TPanel
       Left = 1
       Top = 1
-      Width = 234
+      Width = 294
       Height = 49
       Align = alTop
       BorderStyle = bsSingle
@@ -76,21 +67,17 @@ object Form1: TForm1
     end
   end
   object Panel3: TPanel
-    Left = 246
-    Top = 45
-    Width = 240
-    Height = 136
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 307
+    Top = 56
+    Width = 300
+    Height = 170
     BorderStyle = bsSingle
     TabOrder = 2
     object imgFoodReceipies: TImage
       Left = 1
       Top = 50
-      Width = 234
-      Height = 81
+      Width = 294
+      Height = 115
       Align = alClient
       Stretch = True
       OnClick = imgFoodReceipiesClick
@@ -102,7 +89,7 @@ object Form1: TForm1
     object Panel7: TPanel
       Left = 1
       Top = 1
-      Width = 234
+      Width = 294
       Height = 49
       Align = alTop
       BorderStyle = bsSingle
@@ -118,20 +105,16 @@ object Form1: TForm1
   end
   object Panel4: TPanel
     Left = 1
-    Top = 192
-    Width = 240
-    Height = 136
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Top = 240
+    Width = 300
+    Height = 170
     BorderStyle = bsSingle
     TabOrder = 3
     object imgDietFood: TImage
       Left = 1
       Top = 50
-      Width = 234
-      Height = 81
+      Width = 294
+      Height = 115
       Align = alClient
       Stretch = True
       OnClick = imgDietFoodClick
@@ -143,7 +126,7 @@ object Form1: TForm1
     object Panel8: TPanel
       Left = 1
       Top = 1
-      Width = 234
+      Width = 294
       Height = 49
       Align = alTop
       BorderStyle = bsSingle
@@ -158,21 +141,17 @@ object Form1: TForm1
     end
   end
   object Panel5: TPanel
-    Left = 246
-    Top = 192
-    Width = 240
-    Height = 136
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 307
+    Top = 240
+    Width = 300
+    Height = 170
     BorderStyle = bsSingle
     TabOrder = 4
     object ImgBMI: TImage
       Left = 1
       Top = 50
-      Width = 234
-      Height = 81
+      Width = 294
+      Height = 115
       Align = alClient
       Stretch = True
       OnClick = ImgBMIClick
@@ -184,7 +163,7 @@ object Form1: TForm1
     object Panel9: TPanel
       Left = 1
       Top = 1
-      Width = 234
+      Width = 294
       Height = 49
       Align = alTop
       BorderStyle = bsSingle
@@ -199,14 +178,10 @@ object Form1: TForm1
     end
   end
   object BtnUsers: TButton
-    Left = 419
-    Top = 6
-    Width = 60
-    Height = 20
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Left = 524
+    Top = 8
+    Width = 75
+    Height = 25
     Caption = 'Users'
     TabOrder = 5
     Visible = False
@@ -214,10 +189,9 @@ object Form1: TForm1
   end
   object idb: TFDConnection
     Params.Strings = (
-      'Database=C:\HealthApp1\Database1.accdb'
-      'DriverID=MSAcc')
+      'Database=C:\HealthApp1\MyHealthApp.db'
+      'DriverID=SQLite')
     TxOptions.Isolation = xiRepeatableRead
-    Connected = True
     LoginPrompt = False
     Left = 296
     Top = 208
@@ -236,23 +210,25 @@ object Form1: TForm1
   object qMyFoodReceipies: TFDQuery
     Connection = idb
     SQL.Strings = (
-      'select * from [MyFoodReceipes]')
+      'select * from MyFoodReceipes')
     Left = 248
     Top = 144
     object qMyFoodReceipiesID: TFDAutoIncField
+      DisplayWidth = 10
       FieldName = 'ID'
       Origin = 'ID'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
+      ReadOnly = False
     end
-    object qMyFoodReceipiesName: TWideStringField
-      DisplayWidth = 40
+    object qMyFoodReceipiesName: TStringField
+      DisplayWidth = 50
       FieldName = 'Name'
       Origin = 'Name'
-      Size = 255
+      Required = True
+      Size = 50
     end
-    object qMyFoodReceipiesReceipe: TWideStringField
-      DisplayWidth = 100
+    object qMyFoodReceipiesReceipe: TStringField
+      DisplayWidth = 255
       FieldName = 'Receipe'
       Origin = 'Receipe'
       Size = 255
@@ -266,31 +242,34 @@ object Form1: TForm1
   object qUsers: TFDQuery
     Connection = idb
     SQL.Strings = (
-      'Select * from [User]')
+      'Select * from User')
     Left = 336
     Top = 144
+    object qUsersUsername: TStringField
+      DisplayWidth = 50
+      FieldName = 'Username'
+      Origin = 'Username'
+      Required = True
+    end
+    object qUsersPassword: TStringField
+      DisplayWidth = 50
+      FieldName = 'Password'
+      Origin = 'Password'
+      Required = True
+    end
     object qUsersID: TFDAutoIncField
+      DisplayWidth = 10
       FieldName = 'ID'
       Origin = 'ID'
       ProviderFlags = [pfInWhere, pfInKey]
-      ReadOnly = True
-    end
-    object qUsersUserName: TWideStringField
-      DisplayWidth = 25
-      FieldName = 'UserName'
-      Origin = 'UserName'
-      Size = 255
-    end
-    object qUsersPassword: TWideStringField
-      DisplayWidth = 60
-      FieldName = 'Password'
-      Origin = '[Password]'
-      Size = 255
+      ReadOnly = False
+      Visible = False
     end
     object qUsersIsAdmin: TBooleanField
+      DisplayWidth = 5
       FieldName = 'IsAdmin'
       Origin = 'IsAdmin'
-      Required = True
+      Visible = False
     end
   end
   object dsUsers: TDataSource
@@ -303,7 +282,7 @@ object Form1: TForm1
     UpdateOptions.AssignedValues = [uvAutoCommitUpdates]
     UpdateOptions.AutoCommitUpdates = True
     UpdateOptions.UpdateTableName = 'User'
-    Left = 232
-    Top = 232
+    Left = 304
+    Top = 216
   end
 end

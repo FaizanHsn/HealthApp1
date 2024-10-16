@@ -63,7 +63,7 @@ begin
   begin
     close;
     Sql.clear;
-    Sql.Add('Select * from [user] where username=:username');
+    Sql.Add('Select * from user where username=:username');
     Params.ParamByName('username').AsString:=editusername.text;
     Open;
     if recordcount>0 then
@@ -77,7 +77,7 @@ begin
   begin
     Close;
     Sql.clear;
-    Sql.Add('insert into [user] ([username],[password]) values (:username,:password)');
+    Sql.Add('insert into user (username,password) values (:username,:password)');
     Params.ParamByName('username').AsString:=editusername.text;
     Params.ParamByName('password').AsString:=editpassword.text;
 

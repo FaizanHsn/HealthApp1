@@ -11,8 +11,7 @@ uses
   FireDAC.Phys.SQLite, FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs,
   FireDAC.Phys.SQLiteWrapper.Stat, FireDAC.VCLUI.Wait, Data.DB,
   FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS, FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet, ShellAPI, FireDAC.Phys.MSAcc,
-  FireDAC.Phys.MSAccDef ;
+  FireDAC.DApt, FireDAC.Comp.DataSet, ShellAPI ;
 
 type
   TForm1 = class(TForm)
@@ -30,20 +29,20 @@ type
     idb: TFDConnection;
     qWorkRead: TFDQuery;
     qMyFoodReceipies: TFDQuery;
+    qMyFoodReceipiesID: TFDAutoIncField;
+    qMyFoodReceipiesName: TStringField;
+    qMyFoodReceipiesReceipe: TStringField;
     dsMyFoodReceipies: TDataSource;
     ImgBMI: TImage;
     imgFoodReceipies: TImage;
     BtnUsers: TButton;
     qUsers: TFDQuery;
     dsUsers: TDataSource;
-    qWorkWrite: TFDQuery;
-    qMyFoodReceipiesID: TFDAutoIncField;
-    qMyFoodReceipiesName: TWideStringField;
-    qMyFoodReceipiesReceipe: TWideStringField;
     qUsersID: TFDAutoIncField;
-    qUsersUserName: TWideStringField;
-    qUsersPassword: TWideStringField;
+    qUsersUsername: TStringField;
+    qUsersPassword: TStringField;
     qUsersIsAdmin: TBooleanField;
+    qWorkWrite: TFDQuery;
     procedure FormCreate(Sender: TObject);
     procedure imgDailyWorkoutPlanClick(Sender: TObject);
     procedure imgDietFoodClick(Sender: TObject);
@@ -156,7 +155,7 @@ begin
   NewForm := Tform2.Create(Self);
   try
     NewForm.Caption:='MyFoodReceipies';
-    NewForm.dbgMyFoodReceipies.visible:=True;
+    NewForm.dbgFoodReceipies.visible:=True;
     NewForm.ShowModal;
   finally
     NewForm.Free;

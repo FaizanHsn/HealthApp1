@@ -3,30 +3,56 @@ object Form2: TForm2
   Top = 0
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Form2'
-  ClientHeight = 433
-  ClientWidth = 609
+  ClientHeight = 441
+  ClientWidth = 624
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
-  Font.Height = -10
+  Font.Height = -12
   Font.Name = 'Segoe UI'
   Font.Style = []
   Position = poScreenCenter
   OnShow = FormShow
-  PixelsPerInch = 96
-  TextHeight = 12
+  TextHeight = 15
+  object dbgFoodReceipies: TwwDBGrid
+    Left = 0
+    Top = 0
+    Width = 624
+    Height = 441
+    Selected.Strings = (
+      'ID'#9'10'#9'ID'#9'T'#9
+      'Name'#9'50'#9'Name'#9'T'#9
+      'Receipe'#9'255'#9'Receipe'#9'T'#9)
+    IniAttributes.Delimiter = ';;'
+    IniAttributes.UnicodeIniFile = False
+    TitleColor = clBtnFace
+    FixedCols = 0
+    ShowHorzScrollBar = False
+    Align = alClient
+    DataSource = Form1.dsMyFoodReceipies
+    TabOrder = 0
+    TitleAlignment = taLeftJustify
+    TitleFont.Charset = DEFAULT_CHARSET
+    TitleFont.Color = clWindowText
+    TitleFont.Height = -12
+    TitleFont.Name = 'Segoe UI'
+    TitleFont.Style = []
+    TitleLines = 1
+    TitleButtons = False
+    Visible = False
+    ExplicitWidth = 622
+    ExplicitHeight = 433
+  end
   object MyDailyWorkOut: TPanel
     Left = 0
     Top = 0
-    Width = 609
-    Height = 433
-    Margins.Left = 2
-    Margins.Top = 2
-    Margins.Right = 2
-    Margins.Bottom = 2
+    Width = 624
+    Height = 441
     Align = alClient
-    TabOrder = 0
+    TabOrder = 1
     Visible = False
+    ExplicitWidth = 622
+    ExplicitHeight = 433
     object WorkOut1: TImage
       Left = 16
       Top = 16
@@ -153,32 +179,5 @@ object Form2: TForm2
       Font.Style = []
       ParentFont = False
     end
-  end
-  object dbgMyFoodReceipies: TDBGrid
-    Left = 0
-    Top = 0
-    Width = 609
-    Height = 433
-    Align = alClient
-    DataSource = Form1.dsMyFoodReceipies
-    ReadOnly = True
-    TabOrder = 1
-    TitleFont.Charset = DEFAULT_CHARSET
-    TitleFont.Color = clWindowText
-    TitleFont.Height = -10
-    TitleFont.Name = 'Segoe UI'
-    TitleFont.Style = []
-    Visible = False
-    Columns = <
-      item
-        Expanded = False
-        FieldName = 'Name'
-        Visible = True
-      end
-      item
-        Expanded = False
-        FieldName = 'Receipe'
-        Visible = True
-      end>
   end
 end
